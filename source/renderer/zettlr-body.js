@@ -28,7 +28,6 @@ const { ipcRenderer } = require('electron')
 // Dialogs
 const StatsDialog = require('./dialog/stats.js')
 const TagCloud = require('./dialog/tag-cloud.js')
-const UpdateDialog = require('./dialog/update.js')
 const AboutDialog = require('./dialog/about.js')
 const PreferencesDialog = require('./dialog/preferences.js')
 const PDFPreferences = require('./dialog/pdf-preferences.js')
@@ -416,16 +415,6 @@ class ZettlrBody {
     // We need the project directory's name as a default value
     prefs.projectDirectory = this.getRenderer().find(prefs.hash).name
     this._currentDialog.init(prefs).open()
-    this._currentDialog.on('afterClose', (e) => { this._currentDialog = null })
-  }
-
-  /**
-    * Displays the update notification
-    * @param  {Object} cnt An object containing information on the update.
-    */
-  displayUpdate (cnt) {
-    this._currentDialog = new UpdateDialog()
-    this._currentDialog.init(cnt).open()
     this._currentDialog.on('afterClose', (e) => { this._currentDialog = null })
   }
 

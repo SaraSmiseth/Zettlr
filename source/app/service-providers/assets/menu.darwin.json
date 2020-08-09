@@ -405,10 +405,6 @@
         "label": "menu.docs",
         "accelerator": "F1",
         "target": "https://docs.zettlr.com/"
-      },
-      {
-        "label": "menu.update",
-        "command": "update-check"
       }
     ]
   }
